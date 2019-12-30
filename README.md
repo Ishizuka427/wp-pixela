@@ -13,15 +13,12 @@ python3 google_analytics_access.py
 # セットアップ
 
 1. PixelaでユーザーとIDを作成
-
 https://pixe.la/
 
 2. 対象blogにGoogleAnalyticsを導入
-
 https://analytics.google.com/analytics/web/provision/#/provision
 
 3. GoogleAnalytics APIを利用してjsonファイルをDL
-
 https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py?hl=ja
 
 4. cron
