@@ -23,14 +23,25 @@ https://analytics.google.com/analytics/web/provision/#/provision
 3. GoogleAnalytics APIを利用してjsonファイルをDL
 https://developers.google.com/analytics/devguides/reporting/core/v4/quickstart/service-py?hl=ja
 
-4. cron
+4. 以下の依存パッケージをインストールしておきます。
+
+- google-api-python-client
+- oauth2client
+- requests
+- python-dotenv
+
+```
+pip3 install google-api-python-client oauth2client requests python-dotenv
+```
+
+5. cron
 
 ```
 # crontab -e
 0 2 * * * cd /opt/wp-pixela && python3 google_analytics_access.py
 ```
 
-5. htmlに貼り付け
+6. htmlに貼り付け
 
 ```
 <iframe src="https://pixe.la/v1/users/<ユーザー名>/graphs/<グラフID>?mode=short"></iframe>

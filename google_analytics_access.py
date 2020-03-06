@@ -3,6 +3,7 @@ import json
 import os
 import datetime
 import requests
+import dotenv
 
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
@@ -42,7 +43,7 @@ def get_report(analytics):
         'reportRequests': [
         {
           'viewId': VIEW_ID,
-          'dateRanges': [{'startDate': 'yesterday', 'endDate': 'yesterday'}],
+          'dateRanges': [{'startDate': '2020-02-16', 'endDate': '2020-02-16'}],
           'metrics': [{'expression': 'ga:sessions'}],
           'dimensions': [{'name': 'ga:country'}]
         }]
@@ -88,7 +89,7 @@ def main():
   }
   requests.post(
     PIXELA_API_URL,
-    data=json.dumps(data)
+    data=json.dumps(data),
     headers={
       "Content-Type": "application/json",
       "X-USER-TOKEN": PIXELA_API_TOKEN,
