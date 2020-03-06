@@ -43,7 +43,7 @@ def get_report(analytics):
         'reportRequests': [
         {
           'viewId': VIEW_ID,
-          'dateRanges': [{'startDate': '2020-02-16', 'endDate': '2020-02-16'}],
+          'dateRanges': [{'startDate': 'yesterday', 'endDate': 'yesterday'}],
           'metrics': [{'expression': 'ga:sessions'}],
           'dimensions': [{'name': 'ga:country'}]
         }]
