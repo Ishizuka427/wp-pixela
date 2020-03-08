@@ -5,6 +5,7 @@ import datetime
 import requests
 import dotenv
 
+from datetime import date
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -30,7 +31,7 @@ def initialize_analyticsreporting():
 
   return analytics
 
-def get_report(analytics):
+def get_report(analytics, date_):
   """Queries the Analytics Reporting API V4.
 
   Args:
@@ -43,7 +44,7 @@ def get_report(analytics):
         'reportRequests': [
         {
           'viewId': VIEW_ID,
-          'dateRanges': [{'startDate': 'yesterday', 'endDate': 'yesterday'}],
+          'dateRanges': [{'startDate': date_.strftime("%Y-%m-%d"), 'endDate': date_.strftime("%Y-%m-%d")}],
           'metrics': [{'expression': 'ga:sessions'}],
           'dimensions': [{'name': 'ga:country'}]
         }]
@@ -81,13 +82,17 @@ def print_response(response):
 
 def main():
   analytics = initialize_analyticsreporting()
-  response = get_report(analytics)
+  yesterday = date.today() - datetime.timedelta(days=1)
+  response = get_report(analytics, yesterday)
   
   data = {
-      "date": (datetime.date.today() - datetime.timedelta(days=1)).strftime("%Y%m%d"),
+      "date": yesterday.strftime("%Y%m%d"),
       "quantity": response["reports"][0]["data"]["totals"][0]["values"][0],
   }
-  requests.post(
+
+  print(json.dumps(data))
+
+  resp = requests.post(
     PIXELA_API_URL,
     data=json.dumps(data),
     headers={
@@ -95,7 +100,8 @@ def main():
       "X-USER-TOKEN": PIXELA_API_TOKEN,
     },
   )
-  print(json.dumps(data))
+
+  resp.raise_for_status()
 
 if __name__ == '__main__':
   main()
