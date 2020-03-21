@@ -83,6 +83,7 @@ def print_response(response):
 def main():
   analytics = initialize_analyticsreporting()
   yesterday = date.today() - datetime.timedelta(days=1)
+  # yesterday = datetime.date(2020, 2, 24) 　# 日付を指定して手動実行する場合
   response = get_report(analytics, yesterday)
   
   data = {
