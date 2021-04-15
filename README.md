@@ -51,9 +51,7 @@ pip3 install google-api-python-client oauth2client requests python-dotenv
 
 詳細については下記blogを参照
 
-[Pixelaという草APIサービスを利用して、WordPressのPV数をGitHub風に草生やしてサイドバーに表示させたい(丁寧に)](https://suwa3.netlify.app/post/2019-12-28-pixela%e3%81%a8%e3%81%84%e3%81%86%e8%8d%89api%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%81%a6%e3%80%81wordpress%e3%81%aepv%e6%95%b0%e3%82%92github%e9%a2%a8%e3%81%ab-2/)
-
-https://suwa3.netlify.app/post/2021-04-09-
+[Pixelaという草APIサービスを利用して、WordPressのPV数をGitHub風に草生やしてサイドバーに表示させたい(丁寧に)](https://suwa3.netlify.app/post/2019-12-28-pixela%E3%81%A8%E3%81%84%E3%81%86%E8%8D%89api%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6wordpress%E3%81%AEpv%E6%95%B0%E3%82%92github%E9%A2%A8%E3%81%AB-2/)
 
 ツールチップを表示させたい場合はこちらを参照
 
